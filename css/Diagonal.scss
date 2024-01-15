@@ -1,0 +1,155 @@
+:root {
+  --width: 100vw;
+  --full-width: 100vw;
+
+  @media (min-width: 50em) {
+    --width: 50rem;
+  }
+
+@media (min-width: 600px){
+  .diagonal-box{
+    top:-65px;
+  }
+
+  h1{
+    font-size: 28px;
+    padding: 20px 25px 15px;
+  }
+  h6{
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 950px){
+  h1{
+    font-size: 40px;
+  }
+
+  .intro{
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 1300px){
+  h1{
+    font-size: 55px;
+  }
+}
+
+  --angle: -3deg;
+  /*-----------------
+Magic Number Alert:
+
+the 0.09719 is calculated by this formula:
+tan(11°) / 2
+11° is the current skewY value :   --magic-number: 0.09719;
+Mais avec 3 deg, ça fait : 0.02620
+------------------*/
+  --magic-number: 0.02620;
+  --skew-padding: calc(var(--width) * var(--magic-number));
+  --clip-padding: calc(var(--full-width) * var(--magic-number));
+}
+
+.diagonal-box {
+  position: relative;
+  padding: var(--skew-padding) 0;
+  // margin-top: -1px;
+  top: -192px;
+  z-index: 2;
+  
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform: skewy(var(--angle));
+    transform-origin: 50% 0;
+    outline: 1px solid transparent;
+    backface-visibility: hidden;
+  }
+}
+
+.content {
+  // max-width: var(--width);
+  margin: 0 auto;
+  // padding: 1.5em;
+  position: relative;
+}
+
+
+/* --------------------
+Presentational Styles 
+-------------------- */
+
+// *,
+// *:before,
+// *:after {
+//   box-sizing: border-box;
+// }
+
+html {
+  font-size: 100%;
+  transition: font-size 0.2s linear;
+
+  @media (min-width: 70em) {
+    font-size: 125%;
+  }
+}
+
+body {
+  // background: #E2E2E2;
+  padding-top: 8em;
+  color: #fff;
+  // font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 {
+  // line-height: 3;
+  font-family: 'Roboto Condensed' !important;
+  text-align: center;
+  font-size: 25px;
+  font-style: italic;
+  padding: 0 5px 15px;
+  margin: 0;
+  color: #363135;
+  // max-width: 42rem;
+  transform: skewY(var(--angle));
+  // text-transform: uppercase;
+  background-color: #F1C36B;
+  margin-top: -12px;
+}
+
+h6 {
+  // line-height: 3;
+  font-family: 'Roboto Condensed' !important;
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
+  padding-bottom: 5px;
+  // padding: 0 5px 15px;
+  margin: -2px 0 0 0;
+  color: #363135;
+  transform: skewY(var(--angle));
+  background-color: #F1C36B;
+}
+
+.intro {
+  // font-family: 'Roboto Condensed', sans-serif !important;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 9px;
+  transform: skewY(var(--angle));
+  margin: 0em auto 0em;
+  text-align: center;
+  background: #F1C36B;
+  color: #003;
+  padding: 0 25px;
+  text-transform: uppercase;
+}
+
+.content span {
+  color: #fff;
+}

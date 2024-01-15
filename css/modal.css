@@ -1,0 +1,250 @@
+/* [Object] Modal
+ * =============================== */
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  background: rgba(0, 0, 0, .9);
+  transition: opacity .25s ease;
+  z-index: 4;
+}
+
+.modal__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.modal-state {
+  display: none;
+}
+
+.modal-state:checked+.modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-state:checked+.modal .modal__inner {
+  top: 0;
+}
+
+.modal__inner {
+  transition: top .25s ease;
+  position: absolute;
+  top: -20%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 72%;
+  color: #fff;
+  margin: auto;
+  overflow: auto;
+  background: #2f2b2b;
+  border-radius: 5px;
+  padding: 1em 2em;
+  height: 500px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 920px;
+  z-index: 10;
+}
+
+.modal__inner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../images/BaugesChalet.jpg");
+  background-size: cover;
+  opacity: 0.1;
+}
+
+.modal__close {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  width: 1.1em;
+  height: 1.1em;
+  cursor: pointer;
+  height: 20px;
+  z-index: 12;
+}
+
+.modal__close:after,
+.modal__close:before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 1.5em;
+  background: #ccc;
+  display: block;
+  transform: rotate(45deg);
+  left: 50%;
+  margin: -3px 0 0 -1px;
+  top: 0;
+}
+
+.modal__close:hover:after,
+.modal__close:hover:before {
+  background: #aaa;
+}
+
+.modal__close:before {
+  transform: rotate(-45deg);
+}
+
+/* Other
+ * =============================== */
+
+.btn {
+  font-size: 21px;
+  margin-left: 20px;
+  margin-top: 20px;
+  border-right: none;
+  color: #363135;
+  background: #E4C981;
+  border: 2px solid #fff;
+  padding: 5px 20px 5px 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+}
+
+.btn-index-book {
+  font-family: "Poppins-semib";
+  text-align: center;
+  width: 219px;
+  padding: 6px;
+  top: 90%;
+  position: absolute;
+  font-size: 17px;
+  color: #363135;
+  background: #E4C981;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 2px white;
+}
+
+.btn-index-book:hover {
+  display: inline-block;
+  -webkit-transform: scale(1.05);
+  scale: 1.05;
+  transition: all 0.3s ease-in-out;
+}
+
+p img {
+  max-width: 200px;
+  height: auto;
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+/* ***************mes rajouts ******************/
+.left-content {
+  font-weight: 400;
+  text-align: center;
+  width: 240px;
+  position: relative;
+  z-index: 12;
+}
+
+.right-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* width: 240px; */
+  min-width: 240px;
+  max-width: 380px;
+  z-index: 12;
+}
+
+.contact {
+  font-size: 23px;
+  /* font-size: 30px; */
+  color: #363135;
+  border-radius: 4px;
+  background-color: #E4C981;
+}
+
+.phone {
+  font-family: "Popin-light";
+  font-size: 18px;
+  /* font-size: 28px; */
+}
+
+.mail {
+  font-family: "Popin-light";
+  font-size: 15px;
+}
+
+.modal-when {
+  font-family: "Popin-light";
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.picto {
+  margin-top: 32px;
+  width: 30px;
+  /* width: 40px; */
+}
+
+.map {
+  margin: 10px;
+}
+
+.description {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  /* width: 360px; */
+  /* min-width: 240px; */
+  font-family: "Popin-light";
+  text-align: justify;
+  font-size: 15px;
+}
+
+@font-face {
+  font-family: "Popin-light";
+  src: local("Poppins"),
+    url("../fonts/Poppins-ExtraLight.ttf");
+}
+
+@media screen and (max-width: 920px) {
+  .modal__inner {
+    box-sizing: border-box;
+  }
+}
+
+@media (min-width : 850px) {
+  .btn-index-book {
+    width: 220px;
+    top: 85%;
+    font-size: 18px;
+    right: 15px;
+    padding: 8px;
+  }
+}
+
+/* @media (min-width : 900px) {
+  .right-content{
+    width: 240px;
+  }
+} */
+
+@media (min-width : 1150px) {
+  .btn-index-book{
+    width: 280px;
+    font-size: 23px;
+    right: 26px;
+    padding: 8px;
+  }
+}

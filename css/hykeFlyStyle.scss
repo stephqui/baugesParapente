@@ -1,0 +1,105 @@
+//colors 
+$yellow: #E4C981;
+$yellowDark: #dbb346;
+
+//tabs
+div[class^="cat"] {
+  width: 380px;
+  color: #000;
+  background: #0C6578;
+  padding: 10px 20px;
+
+  //tabs lables
+  &>label {
+    font-family: "Poppins-sbi";
+    background: $yellow;
+    color: #363135;
+    cursor: pointer;
+    display: block;
+    font-size: 24px;
+    // font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+    padding: 10px 10px;
+    transition: all 0.55s;
+
+    &:hover {
+      background: $yellowDark;
+    }
+  }
+
+  &>input {
+    position: absolute;
+    z-index: -999;
+
+    &:focus+label {
+      background: $yellowDark;
+      ;
+      letter-spacing: 1px;
+    }
+  }
+
+  //hide questions till tab is picked 
+  .question-wrap {
+    color: #fff;
+    height: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all .75s cubic-bezier(0.19, 1, 0.22, 1);
+    width: 100%;
+  }
+
+  //open accordian style
+  &>input:checked~.question-wrap {
+    max-height: 1000px;
+    opacity: 1;
+    transition: all 1.95s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+
+
+  ///////////////////////////////
+  //question accordian styles //
+  /////////////////////////////
+
+  @at-root {
+
+    .question-wrap {
+      .question {
+        margin: 1em 0;
+      }
+
+      //open accordian style
+      input:checked~p {
+        max-height: 500px;
+        opacity: 1;
+        transition: all 1.95s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+    }
+  }
+}
+
+.cat-1 {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.cat-7 {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.cat-1>label {
+  margin-top: 20px;
+}
+
+@media (min-width: 840px) {
+  div[class^="cat"] {
+    width: 100%;
+  }
+}

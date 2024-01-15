@@ -1,0 +1,131 @@
+@charset "UTF-8";
+:root {
+  --width: 100vw;
+  --full-width: 100vw;
+  --angle: -3deg;
+  /*-----------------
+  Magic Number Alert:
+
+  the 0.09719 is calculated by this formula:
+  tan(11°) / 2
+  11° is the current skewY value :   --magic-number: 0.09719;
+  Mais avec 3 deg, ça fait : 0.02620
+  ------------------*/
+  --magic-number: 0.02620;
+  --skew-padding: calc(var(--width) * var(--magic-number));
+  --clip-padding: calc(var(--full-width) * var(--magic-number));
+}
+@media (min-width: 50em) {
+  :root {
+    --width: 50rem;
+  }
+}
+@media (min-width: 600px) {
+  :root .diagonal-box {
+    top: -65px;
+  }
+  :root h1 {
+    font-size: 28px;
+    padding: 20px 25px 15px;
+  }
+  :root h6 {
+    font-size: 12px;
+  }
+}
+@media (min-width: 950px) {
+  :root h1 {
+    font-size: 40px;
+  }
+  :root .intro {
+    font-size: 10px;
+  }
+}
+@media (min-width: 1300px) {
+  :root h1 {
+    font-size: 55px;
+  }
+}
+
+.diagonal-box {
+  position: relative;
+  padding: var(--skew-padding) 0;
+  top: -192px;
+  z-index: 2;
+}
+.diagonal-box:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: skewy(var(--angle));
+  transform-origin: 50% 0;
+  outline: 1px solid transparent;
+  backface-visibility: hidden;
+}
+
+.content {
+  margin: 0 auto;
+  position: relative;
+}
+
+/* --------------------
+Presentational Styles 
+-------------------- */
+html {
+  font-size: 100%;
+  transition: font-size 0.2s linear;
+}
+@media (min-width: 70em) {
+  html {
+    font-size: 125%;
+  }
+}
+
+body {
+  padding-top: 8em;
+  color: #fff;
+}
+
+h1 {
+  font-family: "Roboto Condensed" !important;
+  text-align: center;
+  font-size: 25px;
+  font-style: italic;
+  padding: 0 5px 15px;
+  margin: 0;
+  color: #363135;
+  transform: skewY(var(--angle));
+  background-color: #F1C36B;
+  margin-top: -12px;
+}
+
+h6 {
+  font-family: "Roboto Condensed" !important;
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
+  padding-bottom: 5px;
+  margin: -2px 0 0 0;
+  color: #363135;
+  transform: skewY(var(--angle));
+  background-color: #F1C36B;
+}
+
+.intro {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 9px;
+  transform: skewY(var(--angle));
+  margin: 0em auto 0em;
+  text-align: center;
+  background: #F1C36B;
+  color: #003;
+  padding: 0 25px;
+  text-transform: uppercase;
+}
+
+.content span {
+  color: #fff;
+}/*# sourceMappingURL=Diagonal.css.map */
