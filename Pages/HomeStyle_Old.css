@@ -1,0 +1,820 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: hidden !important;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+  line-height: 1.3;
+}
+
+@font-face {
+  font-family: "Poppins-semib";
+  src: url("../src/fonts/Poppins-SemiBoldItalic.ttf");
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.green {
+  color: #66c45e;
+}
+
+.currency-size {
+  scale: 1.5;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  background-color: #0C6578;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+  color: rgba(255, 255, 255);
+  z-index: 8;
+  transition: 0.5s ease-out;
+}
+
+.nav-icon {
+  display: flex;
+  filter: drop-shadow(2px 2px 2px rgb(65, 65, 65));
+  align-items: center;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.hamburger {
+  display: none;
+}
+
+.main-navlinks {
+  margin-left: auto;
+}
+
+.navlinks-container a {
+  filter: drop-shadow(2px 2px 2px rgb(65, 65, 65));
+  padding: 0 20px;
+  border-right: solid #fff 3px;
+  font-size: 21px;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.navlinks-container a:nth-child(3) {
+  /* .navlinks-container a:nth-child(4) { */
+  margin-left: 20px;
+  border-right: none;
+  color: #363135;
+  background: #E4C981;
+  border: 2px solid #fff;
+  padding: 5px 20px 5px 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 10px;
+}
+
+.navlinks-container .active {
+  color: #fff;
+}
+
+.navlinks-container a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  width: 80%;
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #fff;
+  transition: transform .3s ease-out;
+}
+
+.navlinks-container a:nth-child(-n+2):hover::after {
+  /* .navlinks-container a:nth-child(-n+3):hover::after { */
+  transform: scaleX(1);
+  color: #E4C981;
+}
+
+.navlinks-container a:nth-child(3):hover {
+  /* .navlinks-container a:nth-child(4):hover { */
+  scale: 1.1;
+  background: #e1b12e;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover{
+  display: inline-block;
+  -webkit-transform: scale(1.1);
+  scale: 1.1;
+  transition: all 0.3s ease-in-out;
+}
+
+/*---- DEBUT------La partie qui fait le parallax ----------------*/
+.wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 300px;
+}
+
+.parallax__group {
+  position: relative;
+  /* height: 100vh; */
+  width: 100vw;
+  transform-style: preserve-3d;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.sky {
+  margin-top: 88px;
+  background: url('../src/images/HomeArclusaz.jpg') no-repeat center;
+  /* background-size: cover; */
+  transform: translateZ(-600px) scale(3);
+  z-index: 1;
+  background-position: 100% 0%;
+  background-size: 1500px 800px;
+}
+
+.info-container {
+  background: #fff;
+  /* background: #e2e2e2; */
+  transform: translateZ(0) scale(1);
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*-----FIN-----La partie qui fait le parallax ----------------*/
+
+.home-video {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 5%;
+  border: 25px solid #fff;
+  background: #fff;
+  z-index: 15;
+}
+
+video {
+  height: 100%;
+  width: 340px;
+  max-width: 1340px;
+  margin-top: 4%;
+  /* padding-bottom: 4%; */
+}
+
+/* iframe {
+  border: 5px solid #fff;
+  width: 880px;
+  height: 500px;
+} */
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 71px;
+  height: 900px;
+}
+
+.home-skewbox {
+  /* opacity: 0.5; */
+  width: 100%;
+  height: 370px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 40%);
+  background-color: rgba(226, 226, 226, 0.4);
+}
+
+.home-title {
+  /* font-weight: bold; */
+  width: 80%;
+  filter: drop-shadow(2px 2px 2px rgb(65, 65, 65));
+  position: absolute;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  left: 16%;
+  top: 5%;
+  color: #e2e2e2;
+  animation: slideTop 2s;
+}
+
+.home-title-text {
+  position: absolute;
+  font-weight: 700;
+  font-size: 25px;
+  text-align: right;
+  width: 320px;
+  height: 170px;
+  top: 44%;
+  color: #fff;
+  animation: slideRight 2s;
+}
+
+.home-title-text span {
+  color: #E4C981;
+}
+
+.home-baptemes {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  overflow: hidden;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% -5%;
+  background-image: url(../src/images/VolDécouverteDrone_Vignette02.jpg);
+}
+
+.home-bapteme-skewbox {
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  position: absolute;
+  clip-path: polygon(0% 55%,
+      100% 50%,
+      100% 100%,
+      0% 100%);
+  right: 0;
+  width: 100%;
+  /* width: 680px; */
+  height: 100%;
+  background-color: #0C6578;
+}
+
+.home-decouverte .home-bapteme-skewbox {
+  opacity: 1;
+}
+
+.baptemes-title {
+  /* padding-right: 20px; */
+  position: absolute;
+  text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.4);
+  width: 316px;
+  font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  top: 52%;
+}
+
+.baptemes-text {
+  position: absolute;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+  width: 80%;
+  font-family: Calibri;
+  font-weight: normal;
+  font-size: 18px;
+  color: #E2E2E2;
+  top: 63%;
+}
+
+.decouverte-text {
+  top: 58%;
+}
+
+.rando-text {
+  padding-right: 20px;
+  position: absolute;
+  font-family: Calibri;
+  font-weight: normal;
+  font-size: 18px;
+  /* text-align: right; */
+  /* filter: drop-shadow(2px 2px 2px rgb(0, 0, 0)); */
+  right: -4%;
+  width: 362px;
+  color: #E2E2E2;
+  top: 58%;
+}
+
+.bapteme-button {
+  font-family: "Poppins-semib";
+  text-align: center;
+  width: 219px;
+  padding: 6px;
+  top: 82%;
+  position: absolute;
+  font-size: 17px;
+  /* font-style: italic; */
+  font-weight: bold;
+  color: #363135;
+  background-color: #E4C981;
+  border-radius: 10px;
+  box-shadow: 0px 0px 0px 2px white;
+}
+
+.book {
+  top: 90%;
+}
+
+.bapteme-button:hover {
+  background-color: #EACB5E;
+}
+
+.home-decouverte {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  overflow: hidden;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% -60%;
+  background-image: url("../src/images/G0029157.JPG");
+}
+
+.home-rando {
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+  background-size: 137%;
+  background-repeat: no-repeat;
+  /* background-position: 50% 50%; */
+  background-image: url("../src/images/0Volbirando.jpg");
+}
+
+footer {
+  background: #0C6578;
+}
+
+.logo-footer {
+  display: flex;
+  justify-content: center;
+  height: 95px;
+  width: auto;
+  background-image: url("../src/images/Logo_Horizontal_Blanc_HD\ 1.png");
+  background-repeat: no-repeat;
+  background-size: 186px;
+  background-position: center;
+}
+
+.contact-name .foot-title {
+  display: flex;
+  justify-content: center;
+  color: #E4C981;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.foot-phone {
+  display: flex;
+  justify-content: center;
+  color: #363135;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.foot-mail {
+  display: flex;
+  justify-content: center;
+  color: #030303;
+  font-size: 17px;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.mentions {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding-top: 20px;
+}
+
+.conditions {
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+/************** DEBUT PARTIE SLIDER QUI ETAIT DANS LE HTML *******/
+.slider {
+  width: 380px;
+  margin: 0px auto;
+}
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+  opacity: 1;
+}
+
+/**************FIN PARTIE SLIDER QUI ETAIT DANS LE HTML *******/
+
+@media (max-width: 950px) {
+  nav {
+    padding: 15px 20px;
+    /* position: fixed; */
+  }
+
+  .nav-icon {
+    order: 2;
+    margin: 0 auto;
+  }
+
+  .nav-icon span {
+    font-size: 22px;
+  }
+
+  .main-navlinks {
+    margin-left: 0;
+  }
+
+  .hamburger {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    background: #faf9f9;
+    align-items: center;
+    position: relative;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #333;
+    position: absolute;
+    pointer-events: none;
+    transition: opacity .3 s 0.15s ease-out;
+  }
+
+  .hamburger span:nth-child(1),
+  .hamburger span:nth-child(3) {
+    transition: transform 0.3s ease-out;
+  }
+
+  .hamburger span:nth-child(1) {
+    transform: translateY(7px);
+  }
+
+  .hamburger span:nth-child(3) {
+    transform: translateY(-7px);
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translate(0) rotate(135deg);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transition: opacity 0s ease-out;
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: translate(0) rotate(-135deg);
+  }
+
+  .navlinks-container {
+    color: #2C3E50;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    background: #fafafa;
+    top: 100%;
+    left: 0;
+    height: 100vh;
+    padding: 15px 50px 15px 20px;
+    border-right: 1px solid #c5c5c6;
+    transform: translate(-100%);
+  }
+
+  .open {
+    transform: translate(0%);
+  }
+
+  .navlinks-container a {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+}
+
+@media (min-width: 500px) {
+  .sky {}
+
+  /* .center-content {
+    background-position: 5% 10%;
+  } */
+
+  .home-title-text {
+    /* width: 50%; */
+  }
+}
+
+@media (min-width: 650px) {
+
+  .sky {
+    background-size: cover;
+  }
+
+  .home-skewbox {
+    height: 430px;
+  }
+
+  .home-title-text {
+    text-align: center;
+    /* left: 30%; */
+    width: 65%;
+    top: 48%;
+    font-size: 33px;
+  }
+}
+
+@media (min-width : 850px) {
+  .slider {
+    width: 770px;
+  }
+
+  video {
+    width: 730px;
+    padding-bottom: 4%;
+  }
+
+  .home-baptemes {
+    height: 620px;
+    background-size: 81%;
+    /* background-image: url(../src/images/VolDécouverteDrone_Vignette02.jpg); */
+    background-position: -50% 0%;
+  }
+
+  .home-bapteme-skewbox {
+    clip-path: polygon(65% 0%, 100% 0%, 100% 100%, 50% 100%);
+  }
+
+  .baptemes-title {
+    width: 248px;
+    top: 3%;
+    right: 16px;
+    text-align: right;
+    font-size: 25px;
+  }
+
+  .baptemes-text {
+    font-size: 26px;
+    text-align: right;
+    right: 15px;
+    top: 35%;
+    width: 261px;
+  }
+
+  .home-decouverte {
+    background-size: 70%;
+    background-position: 0 0;
+  }
+
+  .decouverte-text {
+    top: 21%;
+  }
+
+  .rando-text {
+    text-align: right;
+    font-size: 25px;
+    width: 274px;
+    top: 21%;
+    right: 0;
+  }
+
+  .bapteme-button {
+    width: 220px;
+    top: 75%;
+    font-size: 18px;
+    right: 15px;
+    padding: 8px;
+  }
+
+  .home-rando {
+    background-size: 115%;
+  }
+
+  .book {
+    top: 85%;
+  }
+
+  .footer {
+    height: 160px;
+    width: 100%;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 10px 0 30px;
+  }
+
+  .logo-footer {
+    height: 107px;
+    width: 18%;
+    background-image: url("../src/images/Logo_Vertical_Blanc_HD.png");
+    background-size: 136px;
+  }
+
+  .contact-name {
+    width: 50%
+  }
+
+  .mentions {
+    width: 14%;
+    padding-top: 0;
+  }
+
+  .conditions {
+    width: 18%;
+  }
+}
+
+@media (min-width : 1150px) {
+  .slider {
+    width: 1100px;
+  }
+  video {
+    width: 1060px;
+    padding-bottom: 4%;
+  }
+  .home-baptemes {
+    background-size: 71%;
+    background-position: 0% 20%;
+  }
+
+  .home-bapteme-skewbox {
+    clip-path: polygon(70% 0%, 100% 0%, 100% 100%, 60% 100%);
+  }
+
+  .baptemes-title {
+    width: 323px;
+    font-size: 32px;
+    right: 26px;
+    top: 3%;
+  }
+
+  .baptemes-text {
+    font-size: 30px;
+    text-align: right;
+    right: 26px;
+    top: 34%;
+    width: 34%;
+  }
+
+  .decouverte-text {
+    top: 20%;
+    width: 30%;
+  }
+
+  .bapteme-button {
+    width: 280px;
+    top: 71%;
+    font-size: 23px;
+    right: 26px;
+    padding: 8px;
+  }
+
+  .home-rando {
+    background-size: 78%;
+  }
+
+  .rando-text {
+    font-size: 27px;
+    width: 350px;
+  }
+
+  .book {
+    top: 84%;
+  }
+
+  .home-decouverte {
+    background-size: 70%;
+    background-position: 0% 80%;
+  }
+
+  .contact-name .title {
+    font-size: 31px;
+  }
+}
+
+@media (min-width: 1330px) {
+  .home-title-text {
+    width: 860px;
+  }
+}
+
+@media (max-width: 500px) {
+  /* .nav-icon img {
+    width: 50px;
+  } */
+
+  .nav-icon span {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 660px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (min-width: 950px) {
+  /* .home-skewbox {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 40%);
+  } */
+
+  .site {
+    display: flex;
+  }
+
+  .slide-up {
+    left: 68px;
+  }
+
+  .main {
+    width: 100%;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
